@@ -1,0 +1,382 @@
+/* === Sidebar === */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background-color: #f9fbfd;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-radius: 24px;
+  z-index: 100;
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  padding-left: 8px;
+  margin-top: 0.5px;
+}
+.gradient-text {
+  background: linear-gradient(to right, #00d3c9, #3a7bd5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.nav-section {
+  margin-bottom: 24px;
+}
+.section-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: #b0b3b8;
+  margin: 12px 0 8px 8px;
+  text-transform: uppercase;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #9aa0a6;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  margin-bottom: 4px;
+}
+.nav-item .icon {
+  margin-right: 12px;
+  font-size: 18px;
+}
+.nav-item .label {
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-item:hover {
+  background-color: #eef3f8;
+}
+.nav-item.active {
+  background-color: #e2e8f0;
+  color: #1a237e;
+  font-weight: 600;
+}
+.setting {
+  margin-top: auto;
+  padding-top: 2px;
+  border-top: 1px solid #e0e0e0;
+  margin-bottom: 28px;
+}
+
+/* Sidebar toggle button: hidden by default, only visible on mobile/tablet */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 32px;
+  left: 10px;
+  z-index: 200;
+  background: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 3px 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 992px) {
+  .sidebar-toggle {
+    display: flex;
+  }
+}
+
+/* Sidebar overlay for mobile/tablet */
+.sidebar-overlay {
+  display: none;
+}
+.sidebar-overlay.active {
+  display: block;
+  position: fixed;
+  z-index: 99;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.2);
+}
+
+/* Hide sidebar on small screens by default */
+@media (max-width: 992px) {
+  .sidebar {
+    transform: translateX(-110%);
+    border-radius: 0 24px 24px 0;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* === Main Layout === */
+.dashboard-root {
+  display: flex;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: #f4f8fd;
+}
+@media (max-width: 992px) {
+  .dashboard-root {
+    flex-direction: column;
+  }
+}
+
+/* === Main dashboard area === */
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: transparent;
+  padding: 0;
+  overflow-y: auto;
+  margin-left: 240px; /* Space for sidebar */
+}
+@media (max-width: 992px) {
+  .dashboard-main {
+    margin-left: 0;
+  }
+}
+
+/* Header */
+.dashboard-header {
+  margin-bottom: 18px;
+  padding-left: 0;
+  margin-left: 90px;
+}
+.dashboard-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a237e;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* Grid for main content: side-by-side on desktop */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 32px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 340px;
+}
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 340px;
+}
+
+/* Responsive for tablets */
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 12px;
+  }
+  .right-column, .left-column {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+/* Responsive for mobile */
+@media (max-width: 992px) {
+  .dashboard-header {
+    padding-left: 38px;
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+  .dashboard-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 4px;
+  }
+  .left-column, .right-column {
+    width: 100%;
+    min-width: 0;
+    gap: 12px;
+  }
+}
+
+/* === Anatomy Section === */
+.anatomy-section {
+  margin-left: 100px;
+  background: rgb(217, 235, 249);;
+  border-radius: 24px;
+  box-shadow: 0 2px 16px rgba(44, 62, 80, 0.06);
+  padding: 32px 32px 24px 32px;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 340px;
+  max-width: 600px;
+  margin: 0 0 24px 0;
+  position: relative;
+  transform: translateX(10mm);
+}
+.anatomy-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+  justify-content: flex-start;
+}
+.anatomy-figure {
+  flex: 1 1 320px;
+  min-width: 260px;
+  max-width: 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.human-body {
+  position: relative;
+  width: 220px;
+  margin: 0 auto;
+  background: none;
+}
+.anatomy-image {
+  width: 220px;
+  height: 340px;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+  background: #eaf1fa;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s;
+}
+.anatomy-image:hover {
+  transform: scale(1.02);
+}
+.healthy-heart-badge {
+  position: absolute;
+  top: 54px;             /* Adjust for vertical chest alignment */
+  left: 45%;            /* Always right of the image */
+  margin-right: 100px;     /* Consistent horizontal spacing */
+  background: #5d14ef;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.12);
+  z-index: 12;
+}
+
+.healthy-leg-badge {
+  position: absolute;
+  left: -20%;
+  bottom: 50px;
+  margin-left: 12px;
+  background: #06d6a0;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 16px;
+  font-size: 0.89rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.12);
+  z-index: 21;
+}
+.details-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #007bff;
+  font-weight: 500;
+  margin-top: 0.9rem;
+  margin-left: 600px;
+  cursor: pointer;
+  transition: color 0.2s;
+  font-size: 1rem;
+}
+
+.details-link:hover {
+  color: #0056b3;
+}
+@media (max-width: 1200px) {
+  .anatomy-section {
+    padding: 24px 12px 16px 12px;
+    min-width: 600px;
+    max-width: 720px;
+  }
+  .anatomy-figure {
+    max-width: 280px;
+  }
+  .human-body, .anatomy-image {
+    width: 340px;
+    height: 700px;
+  }
+  .healthy-heart-badge, .healthy-leg-badge {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    margin-left: 6px;
+  }
+}
+@media (max-width: 992px) {
+  .anatomy-section {
+    margin: 0 auto 24px auto;
+    min-width: 0;
+    max-width: 100vw;
+    padding: 12px 2px 10px 2px;
+  }
+  .anatomy-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    min-width: 300px;
+  }
+  .anatomy-figure {
+    max-width: 100px;
+  }
+  .human-body, .anatomy-image {
+    width: 240px;
+    height: 350px;
+  }
+  .healthy-heart-badge {
+    padding: 3px 7px;
+    font-size: 0.7rem;
+    margin-left: 2px;
+    margin-right:10px ;
+  }
+  .healthy-leg-badge {
+    padding: 3px 7px;
+    font-size: 0.7rem;
+    margin-left: 2px;
+    margin-right: 9px;
+    size: 10px;
+  }
+  
+}

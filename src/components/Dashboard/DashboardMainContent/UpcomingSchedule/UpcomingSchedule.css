@@ -1,0 +1,138 @@
+.upcoming-schedule {
+  background-color: rgb(217, 235, 249);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+  transform: translateX(-1mm);
+  width: 95%;
+}
+
+.upcoming-schedule h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+.schedule-day {
+  margin-bottom: 20px;
+}
+
+.schedule-day h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6B7280;
+  margin-bottom: 12px;
+}
+
+.schedule-appointments {
+  display: flex;
+  gap: 12px;
+}
+
+.schedule-card {
+  flex: 1;
+  background-color:  rgb(177, 189, 212);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.05);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.schedule-card p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.schedule-card span {
+  font-size: 12px;
+  color: #6B7280;
+}
+
+.schedule-icon {
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.schedule-icon.purple {
+  background-color: #A78BFA;
+  color: white;
+}
+
+.schedule-icon.blue {
+  background-color: #22D3EE;
+  color: white;
+}
+
+.schedule-icon.red {
+  background-color: #EF4444;
+  color: white;
+}
+
+.schedule-icon.green {
+  background-color: #10B981;
+  color: white;
+}
+
+/* Tablet responsiveness */
+@media (max-width: 1200px) {
+  .upcoming-schedule {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  .schedule-card {
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 13px;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .upcoming-schedule {
+    padding: 10px 4px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  .upcoming-schedule h3 {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  .schedule-day {
+    margin-bottom: 12px;
+  }
+  .schedule-day h4 {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  .schedule-appointments {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .schedule-card {
+    padding: 8px;
+    border-radius: 7px;
+    font-size: 12px;
+  }
+  .schedule-card p {
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+  .schedule-card span {
+    font-size: 10px;
+  }
+  .schedule-icon {
+    padding: 6px;
+    font-size: 15px;
+  }
+}

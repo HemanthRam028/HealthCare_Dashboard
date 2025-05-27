@@ -1,0 +1,136 @@
+.activity-section {
+  background: rgb(217, 235, 249);
+  border-radius: 20px;
+  padding: 26px 32px 22px 32px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
+  overflow: hidden;
+  width: 100%;
+  max-width: 590px;
+  min-width: 0;
+  margin: 0 auto;
+  align-items: center;
+  transform: translateX(-1mm);
+}
+
+.activity-section h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 6px;
+  float: left;
+}
+
+.activity-subtitle {
+  font-size: 14px;
+  color: #6B7280;
+  margin-bottom: 18px;
+  float: right;
+  margin-top: 4px;
+}
+
+.activity-chart {
+  margin-top: 0;
+  clear: both;
+}
+
+.chart-bars {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 110px;
+  gap: 0;
+}
+
+.chart-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 28px;
+}
+
+.chart-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90px;
+  justify-content: flex-end;
+  gap: 6px;
+  width: 100%;
+}
+
+.chart-bar {
+  width: 8px;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+}
+
+.chart-bar.primary {
+  background-color: #22d3ee;
+}
+
+.chart-bar.secondary {
+  background-color: #a78bfa;
+}
+
+.chart-day-label {
+  font-size: 12px;
+  color: #6B7280;
+  margin-top: 8px;
+}
+
+/* Tablet responsiveness */
+@media (max-width: 1200px) {
+  .activity-section {
+    padding: 18px 18px 16px 18px;
+    max-width: 93%;
+  }
+  .chart-bars {
+    height: 80px;
+  }
+  .chart-day {
+    width: 20px;
+  }
+  .chart-bar {
+    width: 6px;
+  }
+  .chart-bar-container {
+    height: 60px;
+    gap: 4px;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .activity-section {
+    padding: 10px 6px 10px 6px;
+    border-radius: 14px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100vw;
+  }
+  .activity-section h3 {
+    font-size: 15px;
+  }
+  .activity-subtitle {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .chart-bars {
+    height: 54px;
+  }
+  .chart-day {
+    width: 12px;
+  }
+  .chart-bar {
+    width: 4px;
+    border-radius: 2px 2px 0 0;
+  }
+  .chart-bar-container {
+    height: 32px;
+    gap: 2px;
+  }
+  .chart-day-label {
+    font-size: 10px;
+    margin-top: 4px;
+  }
+}

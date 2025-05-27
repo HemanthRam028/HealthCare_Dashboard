@@ -1,0 +1,131 @@
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background-color: #f9fbfd;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-radius: 24px;
+  z-index: 100;
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Hide sidebar on small screens by default */
+@media (max-width: 992px) {
+  .sidebar {
+    transform: translateX(-110%);
+    border-radius: 0 24px 24px 0;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* Sidebar overlay for mobile/tablet */
+.sidebar-overlay {
+  display: none;
+}
+.sidebar-overlay.active {
+  display: block;
+  position: fixed;
+  z-index: 99;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.2);
+}
+
+/* Sidebar toggle button styling */
+/* Sidebar toggle button: hidden by default, only visible on mobile/tablet */
+.sidebar-toggle {
+  display: none;               /* Hidden on desktop */
+  position: fixed;
+  top: 40px;
+  left: 10px;
+  z-index: 200;
+  background: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 3px 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  width: 29px;
+  height: 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Show toggle button only on screens 992px wide or less (mobile/tablet) */
+@media (max-width: 992px) {
+  .sidebar-toggle {
+    display: flex;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .sidebar-toggle {
+    display: block;
+  }
+}
+
+/* Sidebar content styling (keep as in your design) */
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  padding-left: 8px;
+  margin-top: 0.5px;
+}
+.gradient-text {
+  background: linear-gradient(to right, #00d3c9, #3a7bd5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.nav-section {
+  margin-bottom: 24px;
+}
+.section-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: #b0b3b8;
+  margin: 12px 0 8px 8px;
+  text-transform: uppercase;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #9aa0a6;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  margin-bottom: 4px;
+}
+.nav-item .icon {
+  margin-right: 12px;
+  font-size: 18px;
+}
+.nav-item .label {
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-item:hover {
+  background-color: #eef3f8;
+}
+.nav-item.active {
+  background-color: #e2e8f0;
+  color: #1a237e;
+  font-weight: 600;
+}
+.setting {
+  margin-top: auto;
+  padding-top: 2px;
+  border-top: 1px solid #e0e0e0;
+  margin-bottom: 28px;
+}
