@@ -1,7 +1,15 @@
 import React from 'react';
-import * as LucideIcons from 'lucide-react';
 import { healthStatus } from '../../../../data/healthStatus';
+import lungsImg from '../../../../assets/lungs.png';
+import teethImg from '../../../../assets/teeth.png';
+import bonesImg from '../../../../assets/bones.png';
 import './HealthStatusCards.css';
+
+const iconMap = {
+  lungs: lungsImg,
+  teeth: teethImg,
+  bones: bonesImg,
+};
 
 const HealthStatusCards = () => {
   const getHealthIconColor = (status) => {
@@ -24,29 +32,31 @@ const HealthStatusCards = () => {
 
   return (
     <div className="health-status-cards">
-      {healthStatus.map((item, index) => {
-        const IconComponent = LucideIcons[item.icon];
-        return (
-          <div key={index} className="health-card">
-            <div className="health-card-header">
-              <IconComponent size={24} style={{ color: getHealthIconColor(item.status) }} />
-              <div>
-                <h3>{item.label}</h3>
-                <p className="health-date">{item.date}</p>
-              </div>
-            </div>
-            <div className="health-progress">
-              <div
-                className="progress-bar"
-                style={{
-                  width: `${item.progress}%`,
-                  backgroundColor: getProgressColor(item.status),
-                }}
-              ></div>
+      {healthStatus.map((item, index) => (
+        <div key={index} className="health-card">
+          <div className="health-card-header">
+            <img
+              src={iconMap[item.icon]}
+              alt={item.label}
+              className="health-icon"
+              style={{ borderColor: getHealthIconColor(item.status) }}
+            />
+            <div>
+              <h3>{item.label}</h3>
+              <p className="health-date">{item.date}</p>
             </div>
           </div>
-        );
-      })}
+          <div className="health-progress">
+            <div
+              className="progress-bar"
+              style={{
+                width: `${item.progress}%`,
+                backgroundColor: getProgressColor(item.status),
+              }}
+            ></div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

@@ -4,6 +4,14 @@
   gap: 18px;
   flex: 1;
 }
+.health-icon {
+  width: 30px;         /* Reduced from 40px */
+  height: 30px;        /* Reduced from 40px */
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  object-fit: cover;
+}
 
 .health-card {
   background-color: #f9fafe;

@@ -7,6 +7,12 @@
   transform: translateX(-1mm);
   width: 95%;
 }
+.schedule-img-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  object-fit: contain;
+}
 
 .upcoming-schedule h3 {
   font-size: 18px;

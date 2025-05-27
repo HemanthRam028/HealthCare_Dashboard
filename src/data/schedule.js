@@ -3,13 +3,13 @@ export const upcomingSchedule = [
     day: 'Thursday',
     appointments: [
       {
-        icon: 'Activity',
+        icon: 'healthcheck',
         iconColor: 'purple',
         title: 'Health checkup complete',
         time: '11:00 AM'
       },
       {
-        icon: 'Eye',
+        icon: 'eye',
         iconColor: 'blue',
         title: 'Ophthalmologist',
         time: '14:00 PM'
@@ -20,13 +20,13 @@ export const upcomingSchedule = [
     day: 'Saturday',
     appointments: [
       {
-        icon: 'Heart',
+        icon: 'heart',
         iconColor: 'red',
         title: 'Cardiologist',
         time: '12:00 AM'
       },
       {
-        icon: 'Brain',
+        icon: 'doctor',
         iconColor: 'green',
         title: 'Neurologist',
         time: '16:00 PM'
